@@ -1,12 +1,18 @@
-*.class
+.svn
+.metadata
+.settings
+.externalToolBuilders
+local.properties
+lint.xml
+build/
+*.bin
+/.gradle
+/local.properties
+/.idea
+/build
+.DS_Store
+*.iml
+/app/obj
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
-# Package Files #
-*.jar
-*.war
-*.ear
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*

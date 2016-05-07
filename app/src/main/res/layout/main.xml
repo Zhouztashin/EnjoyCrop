@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#000"
+    android:layout_height="match_parent">
+
+    <!--<com.zhouztashin.android.enjoycrop.core.image.EnjoyImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
+        android:src="@drawable/test2"/>-->
+    <com.zhouztashin.android.enjoycrop.EnjoyCropLayout
+        android:id="@+id/ll"
+        android:background="#0000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.zhouztashin.android.enjoycrop.EnjoyCropLayout>
+
+    <Button
+        android:id="@+id/bt"
+        android:text="crop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+</RelativeLayout>
