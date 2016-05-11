@@ -42,18 +42,24 @@ public class MainActivity extends Activity {
         enjoyCropLayout = (EnjoyCropLayout) findViewById(R.id.ll);
         enjoyCropLayout.setImageResource(R.drawable.test2);//设置裁剪原图片
         //这里提供了默认的半透明圆形裁剪参数，你也自定义整个裁剪过程的参数，具体参见下面defineCropParams方法。
-        enjoyCropLayout.setDefaultCircleCrop(300)
+        enjoyCropLayout.setDefaultCircleCrop(300);
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) 
-                //裁剪图片
-                enjoyCropLayout.crop();
+                 //裁剪图片，注意这里得到的图片并未进行任何压缩，是裁剪出来的原图大小
+                Bitmap bitmap = enjoyCropLayout.crop();
+                //保存图片
+                String folder = Environment.getExternalStorageDirectory().getPath() + "/" + "EnjoyCrop";
+                FileUtils.createFolder(folder, FileUtils.MODE_UNCOVER);
+                String fileName = folder + File.separator + Calendar.getInstance().getTime().toString() + ".jpg";
+                FileUtils.createFile(fileName, FileUtils.MODE_COVER);
+                BitmapUtils.saveBitmaps(MainActivity.this, bitmap, new File(fileName));
             }
         });
     }
     private void defineCropParams(){
      //设置裁剪集成视图，这里通过一定的方式集成了遮罩层与预览框
-     BaseLayerView layerView = new ClipPathLayerView(getContext());
+     BaseLayerView layerView = new ClipPathLayerView(this);
      layerView.setMask(ColorMask.getTranslucentMask()); //设置遮罩层,这里使用半透明的遮罩层
      layerView.setShape(new ClipPathCircle(300)); //设置预览框形状
      enjoyCropLayout.setLayerView(layerView); //设置裁剪集成视图
@@ -62,4 +68,11 @@ public class MainActivity extends Activity {
 }
 
 ```
+
+##支持版本
+Android 2.2版本以上(包括2.2)
+##引用第三方依赖库
+Android Support v4
+##鸣谢
+~基因*记忆~
 
