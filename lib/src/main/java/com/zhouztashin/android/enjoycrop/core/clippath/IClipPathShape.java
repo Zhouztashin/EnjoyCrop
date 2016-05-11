@@ -6,7 +6,6 @@ import android.graphics.Path;
 
 import com.zhouztashin.android.enjoycrop.core.ILayer;
 import com.zhouztashin.android.enjoycrop.core.IShape;
-import com.zhouztashin.android.enjoycrop.core.porterduff.CanvasWrapper;
 
 /**
  * 采用Canvas.clipPath(..)方案实现裁剪功能的形状接口

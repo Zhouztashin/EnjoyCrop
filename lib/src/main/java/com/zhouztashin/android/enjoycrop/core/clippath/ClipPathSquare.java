@@ -5,7 +5,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 
 import com.zhouztashin.android.enjoycrop.core.ILayer;
-import com.zhouztashin.android.enjoycrop.core.porterduff.CanvasWrapper;
 
 /**
  * Canvas.clipPath(..)方式实现的正方形

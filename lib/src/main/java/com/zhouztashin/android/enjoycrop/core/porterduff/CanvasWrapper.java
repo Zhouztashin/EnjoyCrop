@@ -13,10 +13,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.os.Build;
-import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.Size;
 
 /**
  * Canvas 装饰类,实质上是装饰Paint，设置PorterDuffXfermode属性，达到镂空的效果。
@@ -30,13 +28,6 @@ public class CanvasWrapper {
 
     public CanvasWrapper(Canvas canvas) {
         mCanvas = canvas;
-    }
-
-    public boolean isHardwareAccelerated(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            return mCanvas.isHardwareAccelerated();
-        }
-        return false;
     }
     public boolean isOpque(){
         return mCanvas.isOpaque();
@@ -121,15 +112,15 @@ public class CanvasWrapper {
     public void drawARGB(int a, int r, int g, int b){
         mCanvas.drawARGB(a, r, g, b);
     }
-    public void drawColor(@ColorInt int color) {
+    public void drawColor( int color) {
         mCanvas.drawColor(color);
     }
-    public void drawPoints(@Size(multiple=2) float[] pts, int offset, int count,
+    public void drawPoints( float[] pts, int offset, int count,
                            @NonNull Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawPoints(pts, offset, count, paint);
     }
-    public void drawPoints(@Size(multiple=2) @NonNull float[] pts, @NonNull Paint paint) {
+    public void drawPoints(@NonNull float[] pts, @NonNull Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawPoints(pts, paint);
     }
@@ -143,11 +134,11 @@ public class CanvasWrapper {
         mCanvas.drawLine(startX, startY, stopX, startY, paint);
     }
 
-    public void drawLines(@Size(min=4,multiple=2) float[] pts, int offset, int count, Paint paint) {
+    public void drawLines(float[] pts, int offset, int count, Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawLines(pts, offset, count, paint);
     }
-    public void drawLines(@Size(min=4,multiple=2) @NonNull float[] pts, @NonNull Paint paint) {
+    public void drawLines( @NonNull float[] pts, @NonNull Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawLines(pts, paint);
     }
@@ -168,10 +159,7 @@ public class CanvasWrapper {
         wrapperPaint(paint);
         mCanvas.drawOval(oval, paint);
     }
-    public void drawOval(float left, float top, float right, float bottom, @NonNull Paint paint) {
-        wrapperPaint(paint);
-        mCanvas.drawOval(left, top, right, bottom, paint);
-    }
+
     public void drawCircle(float cx, float cy, float radius, @NonNull Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawCircle(cx, cy, radius, paint);
@@ -181,22 +169,12 @@ public class CanvasWrapper {
         wrapperPaint(paint);
         mCanvas.drawArc(oval, startAngle, sweepAngle, useCenter, paint);
     }
-    public void drawArc(float left, float top, float right, float bottom, float startAngle,
-                        float sweepAngle, boolean useCenter, @NonNull Paint paint) {
-        wrapperPaint(paint);
-        mCanvas.drawArc(left, top, right, bottom, startAngle, sweepAngle, useCenter, paint);
-    }
+
     public void drawRoundRect(@NonNull RectF rect, float rx, float ry, @NonNull Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawRoundRect(rect, rx, ry, paint);
     }
-    public void drawRoundRect(float left, float top, float right, float bottom, float rx, float ry,
-                              @NonNull Paint paint) {
-        wrapperPaint(paint);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mCanvas.drawRoundRect(left,top,right,bottom,rx,ry,paint);
-        }
-    }
+
     public void drawPath(@NonNull Path path, @NonNull Paint paint) {
         wrapperPaint(paint);
         mCanvas.drawPath(path, paint);
@@ -248,16 +226,7 @@ public class CanvasWrapper {
         wrapperPaint(paint);
         mCanvas.drawText(text, start, end, x, y, paint);
     }
-    public void drawTextRun(@NonNull char[] text, int index, int count, int contextIndex,
-                            int contextCount, float x, float y, boolean isRtl, @NonNull Paint paint) {
-        wrapperPaint(paint);
-        mCanvas.drawTextRun(text, index, count, contextIndex, contextCount, x, y, isRtl, paint);
-    }
-    public void drawTextRun(@NonNull CharSequence text, int start, int end, int contextStart,
-                            int contextEnd, float x, float y, boolean isRtl, @NonNull Paint paint) {
-        wrapperPaint(paint);
-        mCanvas.drawTextRun(text, start, end, contextStart, contextEnd, x, y, isRtl, paint);
-    }
+
     public void drawTextOnPath(@NonNull char[] text, int index, int count, @NonNull Path path,
                                float hOffset, float vOffset, @NonNull Paint paint) {
         wrapperPaint(paint);

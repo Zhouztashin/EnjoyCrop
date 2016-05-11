@@ -5,8 +5,6 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zhouztashin.android.enjoycrop.core.clippath.IClipPathShape;
-import com.zhouztashin.android.enjoycrop.core.porterduff.CanvasWrapper;
 
 /**
  * Created by Administrator on 2016/4/22.

@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.zhouztashin.android.enjoycrop.R;
 import com.zhouztashin.android.enjoycrop.core.ILayer;
 import com.zhouztashin.android.enjoycrop.core.IMask;
 

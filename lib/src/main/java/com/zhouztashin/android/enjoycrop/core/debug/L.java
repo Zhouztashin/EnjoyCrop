@@ -4,7 +4,7 @@ import android.graphics.Paint;
 import android.util.Log;
 
 /**
- * Created by Administrator on 2016/4/22.
+ * Created by Zhouztashin on 2016/4/22.
  */
 public class L {
     private final static String TAG = "EnjoyCrop";

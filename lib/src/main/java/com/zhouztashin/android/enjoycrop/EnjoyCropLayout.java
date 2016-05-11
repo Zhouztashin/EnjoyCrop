@@ -230,11 +230,6 @@ public class EnjoyCropLayout extends FrameLayout{
         canvas.drawBitmap(bitmap,cropRect,showRect,new Paint());
 
         return saveBitmap;
-    /*    String folder = Environment.getExternalStorageDirectory().getPath()+"/"+"11EnjoyCrop";
-        FileUtils.createFolder( folder,FileUtils.MODE_UNCOVER);
-        String fileName= folder+ File.separator+ Calendar.getInstance().getTime().toString()+".jpg";
-        FileUtils.createFile(fileName,FileUtils.MODE_COVER);
-        BitmapUtils.saveBitmaps(getContext(),saveBitmap,new File(fileName));*/
 
     }
 

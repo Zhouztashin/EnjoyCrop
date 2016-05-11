@@ -6,10 +6,7 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.media.session.MediaSessionCompat;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ScaleGestureDetectorCompat;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -32,7 +29,7 @@ import com.zhouztashin.android.enjoycrop.core.debug.L;
 
 
  */
-public class ImageMatrixTouchImpl extends  BaseTouchImpl<ImageView> implements ScaleGestureDetector.OnScaleGestureListener {
+public class ImageMatrixTouchImpl extends com.zhouztashin.android.enjoycrop.core.image.BaseTouchImpl<ImageView> implements ScaleGestureDetector.OnScaleGestureListener {
     private final String TAG = ImageMatrixTouchImpl.class.getSimpleName();
     private ScaleGestureDetector mGestrueDetector;
     private boolean isScale;
